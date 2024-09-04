@@ -1,0 +1,29 @@
+server:
+  port: 8443
+  ssl:
+    key-store: classpath:Certs/localhost.p12
+    key-store-password: password
+    key-store-type: PKCS12
+    key-alias: localhost
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/sports-center
+    username: root
+    password: password
+  application:
+    name: SportsCenter
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
